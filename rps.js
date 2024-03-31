@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function winCheck(result) {
+function checkWins(result) {
   if (result.includes("win")) {
     return 1;
   } else {
@@ -69,7 +69,7 @@ function playGame() {
     let playerSelection = prompt("Choose Rock, Paper, or Scissors");
     let result = playRound(playerSelection, computerSelection);
     console.log(result);
-    score += winCheck(result);
+    score += checkWins(result);
     rounds += 1;
   }
   if (score === 1) {
