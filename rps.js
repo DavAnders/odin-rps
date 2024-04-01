@@ -77,3 +77,40 @@ function playGame() {
   }
   return `Your final score is ${score} wins after ${rounds} rounds.`;
 }
+
+let winCount = 0;
+let lossCount = 0;
+
+const results = document.querySelector("#results");
+const wins = document.createElement("p");
+const losses = document.createElement("p");
+const message = document.createElement("p");
+
+message.textContent = "";
+wins.textContent = "Wins: 0";
+losses.textContent = "Losses: 0";
+
+results.appendChild(wins);
+results.appendChild(losses);
+results.appendChild(message);
+
+function playGameButton(e) {
+  const playerChoice = e.target.innerText;
+  const computerChoice = getComputerChoice();
+  let result = playRound(playerChoice, computerChoice);
+  if (result.includes("win")) {
+    winCount += 1;
+    wins.textContent = `Wins: ${winCount}`;
+  } else if (result.includes("lose")) {
+    lossCount += 1;
+    losses.textContent = `Losses: ${lossCount}`;
+  }
+  message.textContent = result;
+}
+
+const buttonRock = document.getElementById("Rock");
+buttonRock.addEventListener("click", playGameButton);
+const buttonPaper = document.getElementById("Paper");
+buttonPaper.addEventListener("click", playGameButton);
+const buttonScissors = document.getElementById("Scissors");
+buttonScissors.addEventListener("click", playGameButton);
