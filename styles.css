@@ -1,0 +1,27 @@
+button {
+  background-color: teal;
+  color: whitesmoke;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+p {
+  align-items: center;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: teal;
+}
+
+body {
+  background-color: #b3cde0;
+}

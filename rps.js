@@ -85,14 +85,17 @@ const results = document.querySelector("#results");
 const wins = document.createElement("p");
 const losses = document.createElement("p");
 const message = document.createElement("p");
+const finalWinner = document.createElement("p");
 
 message.textContent = "";
+finalWinner.textContent = "";
 wins.textContent = "Wins: 0";
 losses.textContent = "Losses: 0";
 
 results.appendChild(wins);
 results.appendChild(losses);
 results.appendChild(message);
+results.appendChild(finalWinner);
 
 function playGameButton(e) {
   const playerChoice = e.target.innerText;
@@ -106,6 +109,20 @@ function playGameButton(e) {
     losses.textContent = `Losses: ${lossCount}`;
   }
   message.textContent = result;
+  if (winCount === 5) {
+    finalWinner.textContent =
+      "You reached 5 wins before the opponent! You win the game.";
+    lossCount = 0;
+    winCount = 0;
+    wins.textContent = "Wins: 0";
+    losses.textContent = "Losses: 0";
+  } else if (lossCount === 5) {
+    finalWinner.textContent = "You lost 5 rounds total! You lose the game.";
+    lossCount = 0;
+    winCount = 0;
+    wins.textContent = "Wins: 0";
+    losses.textContent = "Losses: 0";
+  }
 }
 
 const buttonRock = document.getElementById("Rock");
